@@ -1,20 +1,3 @@
 {
-  "framework": "vite",
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm run build:pages",
-  "outputDirectory": "artifacts/exposure-checker/dist/public",
-  "rewrites": [
-    {
-      "source": "/results",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/methodology",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/index.html"
-    }
-  ]
+  "framework": "nextjs"
 }

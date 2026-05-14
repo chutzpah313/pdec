@@ -4,9 +4,9 @@ A privacy-preserving web app that checks whether an email or password has appear
 
 ## Tech Stack
 
-1. React + Vite frontend
-2. Vercel Functions under `api/*`
-3. pnpm workspace
+1. Next.js + React frontend
+2. Vercel-compatible API routes under `src/pages/api/*`
+3. npm workspaces
 4. XposedOrNot for email breach checks
 5. Have I Been Pwned Pwned Passwords for password checks
 
@@ -15,19 +15,19 @@ A privacy-preserving web app that checks whether an email or password has appear
 Install dependencies:
 
 ```sh
-pnpm install
+npm install
 ```
 
 Run the app locally:
 
 ```sh
-pnpm dev
+npm run dev
 ```
 
 Build for production:
 
 ```sh
-pnpm run build
+npm run build
 ```
 
 ## XposedOrNot API Setup
@@ -67,11 +67,11 @@ This repo includes `vercel.json`, so Vercel can build it from the repo root.
 
 Use these settings when importing the GitHub repository into Vercel:
 
-1. Framework Preset: `Vite`
+1. Framework Preset: `Next.js`
 2. Root Directory: repo root
-3. Install Command: `pnpm install`
-4. Build Command: `pnpm run build:pages`
-5. Output Directory: `artifacts/exposure-checker/dist/public`
+3. Install Command: `npm install`
+4. Build Command: `npm run build`
+5. Output Directory: auto-detected by Next.js
 
 Optional environment variables:
 

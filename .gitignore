@@ -4,6 +4,8 @@
 dist
 tmp
 out-tsc
+.next
+.vercel
 *.tsbuildinfo
 .expo
 .expo-shared
@@ -15,6 +17,9 @@ playwright-report/
 
 # dependencies
 node_modules
+.pnpm-cache/
+.pnpm-data/
+.pnpm-home/
 
 # local secrets
 .env
