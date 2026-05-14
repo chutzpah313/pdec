@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import type { ExposureResult, CheckExposureBody } from "@workspace/api-client-react";
+import type { ExposureResult } from "@workspace/api-client-react";
 
 interface ExposureContextType {
   exposureResult: ExposureResult | null;

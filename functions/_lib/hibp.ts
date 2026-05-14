@@ -32,7 +32,6 @@ const HIBP_EMAIL_RETRY_DELAYS_MS = [1000, 2000, 4000] as const;
 
 let hibpBreachCachePromise: Promise<Map<string, HibpPublicBreach>> | null = null;
 let cacheTimestamp = 0;
-let lastCacheEntries: number | null = null;
 let xposedNextAllowedAt = 0;
 let xposedRateGate: Promise<void> = Promise.resolve();
 let hibpEmailNextAllowedAt = 0;
@@ -82,7 +81,7 @@ async function sha256Hex(value: string): Promise<string> {
 
 async function xposedThrottle(): Promise<void> {
   const previous = xposedRateGate;
-  let releaseGate: (() => void) | null = null;
+  let releaseGate: () => void = () => {};
   xposedRateGate = new Promise<void>((resolve) => {
     releaseGate = resolve;
   });
@@ -93,13 +92,13 @@ async function xposedThrottle(): Promise<void> {
     if (waitMs > 0) await sleep(waitMs);
     xposedNextAllowedAt = Date.now() + XPOSED_MIN_INTERVAL_MS;
   } finally {
-    releaseGate?.();
+    releaseGate();
   }
 }
 
 async function hibpEmailThrottle(): Promise<void> {
   const previous = hibpEmailRateGate;
-  let releaseGate: (() => void) | null = null;
+  let releaseGate: () => void = () => {};
   hibpEmailRateGate = new Promise<void>((resolve) => {
     releaseGate = resolve;
   });
@@ -110,7 +109,7 @@ async function hibpEmailThrottle(): Promise<void> {
     if (waitMs > 0) await sleep(waitMs);
     hibpEmailNextAllowedAt = Date.now() + HIBP_EMAIL_MIN_INTERVAL_MS;
   } finally {
-    releaseGate?.();
+    releaseGate();
   }
 }
 
@@ -258,7 +257,6 @@ async function getHibpBreachCache(): Promise<Map<string, HibpPublicBreach>> {
     .then((list) => {
       const map = new Map<string, HibpPublicBreach>();
       for (const b of list) map.set(b.Name.toLowerCase(), b);
-      lastCacheEntries = map.size;
       return map;
     })
     .catch((error) => {

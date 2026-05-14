@@ -6,12 +6,13 @@ import path from "node:path";
 
 import type { ExposureResult } from "@workspace/api-client-react";
 
-import { buildExposureReport, downloadExposureReport } from "./pdf-report.ts";
+import { buildExposureReport, downloadExposureReport } from "./pdf-report";
 
 const baseResult: ExposureResult = {
   exposed: true,
   breachCount: 2,
   pwnedCount: 0,
+  checkedAt: "2026-01-01T00:00:00.000Z",
   riskLevel: "high",
   riskScore: 82,
   riskExplanation:
@@ -26,21 +27,25 @@ const baseResult: ExposureResult = {
       name: "ExampleBreach",
       domain: "example.com",
       breachDate: "2023-04-12",
+      addedDate: "2023-04-13T00:00:00.000Z",
       pwnCount: 100_000,
       dataClasses: ["Email addresses", "Passwords"],
       isVerified: true,
       isSensitive: false,
       severityScore: 78,
+      severityLevel: "high",
     },
     {
       name: "OtherSite",
       domain: "other.example",
       breachDate: "2024-09-01",
+      addedDate: "2024-09-02T00:00:00.000Z",
       pwnCount: 5_000,
       dataClasses: ["Email addresses"],
       isVerified: true,
       isSensitive: false,
       severityScore: 35,
+      severityLevel: "medium",
     },
   ],
 };
