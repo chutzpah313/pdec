@@ -6,7 +6,7 @@ import * as z from "zod";
 import { ShieldCheck, Mail, Lock, Eye, EyeOff, Search, LockKeyhole, Zap } from "lucide-react";
 
 import { useCheckExposure } from "@workspace/api-client-react";
-import { useExposure } from "@/lib/exposure-context";
+import { useExposure } from "@/context";
 import { usePasswordStrength } from "@/lib/password-strength";
 
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
-import { StrengthMeter } from "@/components/strength-meter";
+import { StrengthMeter } from "@/components/password";
 
 const emailSchema = z.object({
   identifier: z.string().email("Please enter a valid email address"),

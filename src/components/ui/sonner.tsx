@@ -1,6 +1,6 @@
 
 import type { ComponentProps } from "react";
-import { useTheme } from "@/lib/theme-context";
+import { useTheme } from "@/context";
 import { Toaster as Sonner } from "sonner";
 
 type ToasterProps = ComponentProps<typeof Sonner>;

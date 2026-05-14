@@ -14,7 +14,7 @@ import {
   Download,
 } from "lucide-react";
 
-import { useExposure } from "@/lib/exposure-context";
+import { useExposure } from "@/context";
 import type {
   BreachEntry,
   RiskLevel,
@@ -35,10 +35,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ScoreGauge } from "@/components/score-gauge";
-import { FactorBreakdown } from "@/components/factor-breakdown";
-import { StrengthMeter } from "@/components/strength-meter";
-import { InsightsSection } from "@/components/insights-section";
+import { ScoreGauge, FactorBreakdown, InsightsSection } from "@/components/breach";
+import { StrengthMeter } from "@/components/password";
 import { analyzePassword } from "@/lib/password-strength";
 import { downloadExposureReport } from "@/lib/pdf-report";
 

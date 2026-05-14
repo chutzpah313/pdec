@@ -6,7 +6,7 @@ import path from "node:path";
 
 import type { ExposureResult } from "@workspace/api-client-react";
 
-import { buildExposureReport, downloadExposureReport } from "./pdf-report";
+import { buildExposureReport, downloadExposureReport } from "../lib/pdf-report";
 
 const baseResult: ExposureResult = {
   exposed: true,

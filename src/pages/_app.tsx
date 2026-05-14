@@ -2,12 +2,11 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import "@/index.css";
+import "@/styles/globals.css";
 
-import { Layout } from "@/components/layout";
+import { Layout } from "@/components/shared";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ExposureProvider } from "@/lib/exposure-context";
-import { ThemeProvider } from "@/lib/theme-context";
+import { ExposureProvider, ThemeProvider } from "@/context";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function App({ Component, pageProps }: AppProps) {

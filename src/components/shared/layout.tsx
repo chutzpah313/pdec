@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ShieldCheck, Activity } from "lucide-react";
 import { useHealthCheck } from "@workspace/api-client-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { data: health, isLoading } = useHealthCheck();
